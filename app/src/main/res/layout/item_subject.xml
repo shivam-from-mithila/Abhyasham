@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="18dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="10dp"
+
+    app:cardBackgroundColor="@color/cardBgColor"
+    app:cardCornerRadius="17dp"
+    app:cardElevation="4dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- TOP SECTION -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/msans"
+            android:padding="17dp">
+
+            <!-- SUBJECT AREA -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- Subject Icon -->
+                <ImageView
+                    android:id="@+id/subjectIcon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="13dp"
+                    app:tint="@color/subjectIconColor"
+                    android:src="@drawable/state"
+                    android:contentDescription="@null" />
+
+                <!-- Subject Name + Question Count -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/subjectName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Indian Polity"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <TextView
+                        android:id="@+id/questionCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="120 Questions"
+                        android:textColor="@color/questionCountTxtColor"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/msans"
+                        android:maxLines="1" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <!-- ABHYASHAM BUTTON -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/startAbhyasham"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+
+                android:text="Abhyasham"
+                android:textAllCaps="true"
+                android:textColor="@color/abhyashamBtnTextColor"
+                android:textSize="14sp"
+                android:textStyle="bold"
+
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+
+                android:paddingStart="10dp"
+                android:paddingEnd="14dp"
+
+                app:icon="@drawable/lightbulb"
+                app:iconGravity="textStart"
+                app:iconPadding="2dp"
+                app:iconSize="14dp"
+                app:iconTint="@color/abhyashamBtnTextColor"
+
+                app:cornerRadius="10dp"
+                app:backgroundTint="@color/btnBgColor" />
+
+        </LinearLayout>
+
+
+        <!-- PROGRESS SECTION -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center_vertical">
+
+            <!-- Percentage -->
+            <TextView
+                android:id="@+id/progressText"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/msans"
+                android:text="0%"
+                android:textColor="@color/progressTextColor"
+                android:textSize="12sp" />
+
+            <!-- Progress Bar -->
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/subjectProgress"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="12dp"
+
+                android:max="100"
+                android:progress="0"
+
+                app:trackColor="@color/progressTrackColor"
+                app:indicatorColor="@color/progressIndicatorColor"
+                app:trackThickness="6dp"
+                app:trackCornerRadius="3dp" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/apiLoaderOverlay"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#22000000"
+
+    android:clickable="true"
+    android:focusable="true">
+
+
+    <!-- CENTER LOADER CARD -->
+
+    <com.google.android.material.card.MaterialCardView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+
+        app:cardBackgroundColor="@color/cardBgColor"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/strokeCardColor"
+        app:strokeWidth="1dp">
+
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:minWidth="190dp"
+
+            android:gravity="center"
+
+            android:orientation="vertical"
+
+            android:paddingStart="28dp"
+            android:paddingTop="26dp"
+            android:paddingEnd="28dp"
+            android:paddingBottom="24dp">
+
+
+            <!-- LOADER -->
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+
+                android:id="@+id/apiLoaderProgress"
+
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+
+                android:indeterminate="true"
+
+                app:indicatorSize="42dp"
+                app:trackThickness="4dp" />
+
+
+            <!-- TITLE -->
+
+            <TextView
+
+                android:id="@+id/apiLoaderTitle"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="16dp"
+
+                android:fontFamily="@font/msans"
+
+                android:text="Getting Ready..."
+                android:textColor="@color/subjectNameTextColor"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <!-- SUBTITLE -->
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+
+                android:fontFamily="@font/msans"
+
+                android:text="Please wait a moment..."
+                android:textColor="@color/progressHeader2TextColor"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

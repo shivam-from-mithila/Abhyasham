@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="primaryBlue">#060932</color>
+    <color name="primaryYellow">#E7E247</color>
+    <color name="primaryBlack">#000000</color>
+    <color name="primaryRed">#F46036</color>
+    <color name="status_bar">#F5F9FF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cardBgColor">#FFFFFF</color>
+    <color name="abhyashamBtnTextColor">#FFFFFF</color>
+    <color name="subjectNameTextColor">#0B1F3A</color>
+    <color name="questionCountTxtColor">#64748B</color>
+    <color name="btnBgColor">#4F46E5</color>
+    <color name="progressTextColor">#0B1F3A</color>
+    <color name="strokeCardColor">#E2E8F0</color>
+    <color name="progressHeader1TextColor">#0B1F3A</color>
+    <color name="progressHeader2TextColor">#64748B</color>
+    <color name="headerViewOrder">#D9E2EC</color>
+    <color name="progressIndicatorColor">#4F46E5</color>
+    <color name="progressTrackColor">#CBD5E1</color>
+    <color name="subjectIconColor">#000</color>
+    <color name="logoBar">#000</color>
+    <color name="status_bar_color_main">#000b2a</color>
+    <color name="mainBgColor">#F5F9FF</color>
+    <color name="start_practice_btn">#6366F1</color>
+    <color name="status_bar_color_topics">#F5F9FF</color>
+    <color name="topicCardStroke">#DCE4F0</color>
+    <color name="topicCardSelectedStroke">#5555E8</color>
+    <color name="topicCardSelectedBg">#F0F1FF</color>
+    <color name="topicCheckboxTint">#5555E8</color>
+    <color name="questionOptionSelectedBg">#F0F1FF</color>
+    <color name="questionOptionSelectedStroke">#5555E8</color>
+    <!-- Review Result Colors -->
+
+    <color name="reviewCorrectBg">#E8F5E9</color>
+    <color name="reviewCorrectText">#2E7D32</color>
+
+    <color name="reviewIncorrectBg">#FFEBEE</color>
+    <color name="reviewIncorrectText">#C62828</color>
+
+    <color name="reviewUnattemptedBg">#F1F5F9</color>
+    <color name="reviewUnattemptedText">#64748B</color>
+
+    <color name="reviewExplanationBg">#F8FAFC</color>
+
+</resources>

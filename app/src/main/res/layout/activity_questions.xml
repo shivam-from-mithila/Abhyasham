@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/mainBgColor">
+
+    <!-- Scrollable question content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/questionScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="88dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/mainBgColor"
+            android:paddingStart="16dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp">
+
+
+
+
+            <!-- Header -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <!-- Back Button -->
+
+                <FrameLayout
+                    android:id="@+id/btnBack"
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:clickable="true"
+                    android:focusable="true"
+
+                    android:foreground="@drawable/rounded_ripple">
+
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="2.5dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/arrow"
+                        app:tint="@color/subjectNameTextColor"
+                        android:contentDescription="Back" />
+
+                </FrameLayout>
+
+
+                <!-- Question Counter -->
+
+                <TextView
+                    android:id="@+id/tvQuestionNumber"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:gravity="center"
+
+                    android:text="Question 1 of 20"
+
+                    android:textColor="@color/subjectNameTextColor"
+
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+
+                    android:fontFamily="@font/msans" />
+
+
+                <!-- Placeholder -->
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
+
+
+            <!-- Progress -->
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/questionProgress"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="16dp"
+
+                app:trackThickness="5dp"
+                app:trackCornerRadius="5dp"
+
+                app:indicatorColor="#5555E8"
+                app:trackColor="#DCE4F0"
+
+                android:progress="5" />
+
+
+            <!-- Question Card -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardQuestion"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+
+                <TextView
+                    android:id="@+id/tvQuestion"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:padding="18dp"
+
+                    android:text="@string/which_of_the_following_is_a_fundamental_right_guaranteed_by_the_constitution_of_india"
+
+                    android:textColor="@color/subjectNameTextColor"
+
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+
+                    android:fontFamily="@font/msans"
+
+                    android:lineSpacingExtra="3dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Option A -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOptionA"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:foreground="@drawable/rounded_ripple"
+
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:paddingStart="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="14dp">
+
+
+                    <!-- Option Letter -->
+
+                    <TextView
+                        android:id="@+id/tvOptionALetter"
+
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+
+                        android:fontFamily="@font/msans"
+
+                        android:gravity="center"
+
+                        android:text="A"
+
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="14sp"
+
+                        android:textStyle="bold" />
+
+
+                    <!-- Option Text -->
+
+                    <TextView
+                        android:id="@+id/tvOptionAText"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/msans"
+
+                        android:lineSpacingExtra="2dp"
+
+                        android:text="Fundamental Right"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Option B -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOptionB"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:foreground="@drawable/rounded_ripple"
+
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:paddingStart="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="14dp">
+
+
+                    <TextView
+                        android:id="@+id/tvOptionBLetter"
+
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+
+                        android:gravity="center"
+
+                        android:text="B"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+
+                        android:fontFamily="@font/msans" />
+
+
+                    <TextView
+                        android:id="@+id/tvOptionBText"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+
+                        android:text="Option B"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp"
+
+                        android:fontFamily="@font/msans"
+
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Option C -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOptionC"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:foreground="@drawable/rounded_ripple"
+
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:paddingStart="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="14dp">
+
+
+                    <TextView
+                        android:id="@+id/tvOptionCLetter"
+
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+
+                        android:gravity="center"
+
+                        android:text="C"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+
+                        android:fontFamily="@font/msans" />
+
+
+                    <TextView
+                        android:id="@+id/tvOptionCText"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+
+                        android:text="Option C"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp"
+
+                        android:fontFamily="@font/msans"
+
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Option D -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOptionD"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:foreground="@drawable/rounded_ripple"
+
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:paddingStart="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="14dp">
+
+
+                    <TextView
+                        android:id="@+id/tvOptionDLetter"
+
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+
+                        android:gravity="center"
+
+                        android:text="D"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+
+                        android:fontFamily="@font/msans" />
+
+
+                    <TextView
+                        android:id="@+id/tvOptionDText"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+
+                        android:text="Option D"
+
+                        android:textColor="@color/subjectNameTextColor"
+
+                        android:textSize="14sp"
+
+                        android:fontFamily="@font/msans"
+
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <!-- ================================================= -->
+    <!-- FIXED BOTTOM BUTTONS                              -->
+    <!-- ================================================= -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/mainBgColor">
+
+        <!-- Previous -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrevious"
+
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+
+            android:layout_weight="1"
+
+            android:text="Previous"
+
+            android:textSize="13sp"
+            android:textStyle="bold"
+
+            android:fontFamily="@font/msans"
+
+            android:textColor="@color/subjectNameTextColor"
+
+            app:cornerRadius="12dp"
+
+            app:backgroundTint="@color/cardBgColor"
+
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/topicCardStroke" />
+
+
+        <!-- Space -->
+
+        <Space
+            android:layout_width="12dp"
+            android:layout_height="1dp" />
+
+
+        <!-- Next -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+
+            android:layout_weight="1"
+
+            android:text="Next"
+
+            android:textSize="13sp"
+            android:textStyle="bold"
+
+            android:fontFamily="@font/msans"
+
+            android:textColor="@android:color/white"
+
+            app:cornerRadius="12dp"
+
+            app:backgroundTint="#5555E8" />
+    </LinearLayout>
+
+
+    <!-- ================================================= -->
+    <!-- API LOADER                                         -->
+    <!-- MUST BE LAST CHILD                                -->
+    <!-- ================================================= -->
+
+    <include
+        android:id="@+id/apiLoader"
+
+        layout="@layout/view_api_loader"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

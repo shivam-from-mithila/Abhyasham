@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="QuestionsDialogTheme"
+        parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+
+        <!-- Dark popup background -->
+        <item name="android:windowBackground">#242424</item>
+
+        <!-- Dialog title -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+
+        <!-- Dialog message -->
+        <item name="android:textColorSecondary">#D6D6D6</item>
+
+        <!-- Positive button -->
+        <item name="colorAccent">#90CAF9</item>
+
+    </style>
+
+</resources>

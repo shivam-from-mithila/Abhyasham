@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBgColor">
+
+
+    <!-- ================================================= -->
+    <!-- EXISTING CONTENT                                  -->
+    <!-- ================================================= -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+
+        android:background="@color/mainBgColor"
+
+        android:paddingStart="16dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
+
+
+        <!-- Header Title Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+
+            <!-- Back Button -->
+
+            <FrameLayout
+                android:id="@+id/btnBack"
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:clickable="true"
+                android:focusable="true"
+
+                android:foreground="@drawable/rounded_ripple">
+
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="2.5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow"
+                    app:tint="@color/subjectNameTextColor"
+                    android:contentDescription="Back" />
+
+            </FrameLayout>
+
+
+            <!-- Title -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tvSubjectName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Polity"
+                    android:textColor="@color/subjectNameTextColor"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/msans"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- Subtitle + Total Questions -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="14dp"
+
+            android:orientation="vertical">
+
+
+            <!-- Select Topics -->
+
+            <TextView
+                android:id="@+id/tvSelectTopics"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/msans"
+
+                android:text="Select topics to practice"
+
+                android:textColor="#52627D"
+
+                android:textSize="14sp" />
+
+
+            <!-- Question Count -->
+
+            <TextView
+                android:id="@+id/tvTotalQuestions"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Total 120 Questions"
+
+                android:textColor="#5555E8"
+
+                android:textSize="16sp"
+
+                android:fontFamily="@font/msans"
+
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- Topics List -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopics"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_weight="1"
+
+            android:layout_marginTop="16dp"
+
+            android:clipToPadding="false"
+
+            android:paddingBottom="8dp" />
+
+
+        <!-- Start Practice -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartPractice"
+
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+
+            android:layout_marginTop="8dp"
+
+            android:text="Start Practice"
+
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            android:fontFamily="@font/msans"
+
+            android:textColor="@android:color/white"
+
+            app:cornerRadius="14dp"
+
+            app:backgroundTint="#5555E8" />
+
+    </LinearLayout>
+
+
+    <!-- ================================================= -->
+    <!-- API LOADER                                         -->
+    <!-- MUST BE LAST CHILD                                -->
+    <!-- ================================================= -->
+
+    <include
+        android:id="@+id/apiLoader"
+
+        layout="@layout/view_api_loader"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

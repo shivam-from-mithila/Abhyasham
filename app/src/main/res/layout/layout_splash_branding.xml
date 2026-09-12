@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8FAFC">
+
+    <ImageView
+        android:id="@+id/ivSplashBranding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="32dp"
+        android:translationY="-145dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/abhyasham_logo"
+        android:contentDescription="@null" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMadeInBharat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="70dp"
+        android:text="Made in Bharat 🇮🇳"
+        android:textColor="@color/subjectNameTextColor"
+
+        android:textSize="14sp"
+        android:fontFamily="@font/msans"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.02"
+        />
+
+        />
+
+
+
+</FrameLayout>

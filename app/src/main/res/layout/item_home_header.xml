@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- GREETING -->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/greeting1"
+            android:layout_marginStart="15dp"
+            android:text="@string/namask_ram_future_officer"
+            android:textColor="@color/subjectNameTextColor"
+            android:fontFamily="@font/msans"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/greeting2"
+            android:layout_marginStart="15dp"
+            android:text="@string/abhyasham_awaits"
+            android:fontFamily="@font/msans"
+            android:textSize="14sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!-- PROGRESS CARD -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+
+        app:cardBackgroundColor="@color/cardBgColor"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:strokeColor="@color/strokeCardColor"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fontFamily="@font/msans"
+            android:padding="17dp">
+
+            <!-- STATISTICS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <!-- QUESTIONS -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/survey"
+                        android:layout_width="40dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/survey"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/questionsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/progressHeader1TextColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Questions"
+                        android:textColor="@color/progressHeader2TextColor"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/msans" />
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/headerViewOrder" />
+
+
+                <!-- ACCURACY -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/marketing"
+                        android:layout_width="40dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/marketing"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/accuracyValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textColor="@color/progressHeader1TextColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Accuracy"
+                        android:textColor="@color/progressHeader2TextColor"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/msans" />
+
+                </LinearLayout>
+
+
+                <!-- DIVIDER -->
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/headerViewOrder" />
+
+
+                <!-- STREAK -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/fire"
+                        android:layout_width="40dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/fire"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/streakValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/progressHeader1TextColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Day Streak"
+                        android:textColor="@color/progressHeader2TextColor"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/msans" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

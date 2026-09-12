@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/cardTopic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginBottom="10dp"
+
+    android:clickable="true"
+    android:focusable="true"
+
+    app:cardBackgroundColor="@color/cardBgColor"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/topicCardStroke">>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+
+        android:paddingStart="16dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="14dp">
+
+
+        <!-- Topic Name + Question Count -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tvTopicName"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/msans"
+                android:text="Indian Constitution"
+
+                android:textColor="@color/subjectNameTextColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+
+            <TextView
+                android:id="@+id/tvQuestionCount"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="4dp"
+
+                android:fontFamily="@font/msans"
+                android:text="20 Questions"
+
+                android:textColor="#52627D"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <!-- Selection Checkbox -->
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkTopic"
+
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+
+            android:layout_marginStart="8dp"
+
+            android:clickable="false"
+            android:focusable="false"
+            app:buttonTint="@color/topicCheckboxTint"
+            android:contentDescription="Select topic" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
