@@ -1,102 +1,756 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBgColor">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="32dp"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="92dp"
-            android:layout_height="92dp"
-            app:cardBackgroundColor="@color/cardBgColor"
-            app:cardCornerRadius="46dp"
-            app:cardElevation="3dp"
-            app:strokeColor="@color/topicCardStroke"
-            app:strokeWidth="1dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:background="@color/mainBgColor">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="90dp">
+
+
+            <!-- HEADER -->
+
+            <TextView
+                android:id="@+id/tvPrepCenterTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Prep Center"
+                android:textColor="@color/subjectNameTextColor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/msans" />
+
+
+            <TextView
+                android:id="@+id/tvPrepCenterSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
+                android:text="Practice smarter. Prepare better."
+                android:textColor="@color/questionCountTxtColor"
+                android:textSize="13sp"
+                android:fontFamily="@font/msans" />
+
+
+            <!-- ================================================= -->
+            <!-- DAILY CHALLENGE -->
+            <!-- ================================================= -->
+
+            <TextView
+                android:id="@+id/tvDailyChallengeHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daily Challenge"
+                android:textColor="@color/subjectNameTextColor"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/msans" />
+
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="⚡"
-                android:textSize="38sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="10dp"
+                android:text="A new challenge every day"
+                android:textColor="@color/questionCountTxtColor"
+                android:textSize="12sp"
+                android:fontFamily="@font/msans" />
 
-        </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/msans"
-            android:text="Quick Test"
-            android:textColor="@color/subjectNameTextColor"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTodaysChallenge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/msans"
-            android:gravity="center"
-            android:lineSpacingExtra="3dp"
-            android:text="A faster way to test your preparation\nis coming soon."
-            android:textColor="@color/subjectNameTextColor"
-            android:textSize="15sp"
-            android:alpha="0.75" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            app:cardBackgroundColor="@color/cardBgColor"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/topicCardStroke"
-            app:strokeWidth="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="15dp">
+
+
+                    <TextView
+                        android:id="@+id/ivDailyChallenge"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:gravity="center"
+                        android:text="🔥"
+                        android:textSize="23sp"
+                        android:fontFamily="@font/msans" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp">
+
+
+                        <TextView
+                            android:id="@+id/tvTodaysChallenge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Today's Challenge"
+                            android:textColor="@color/subjectNameTextColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/msans" />
+
+
+                        <TextView
+                            android:id="@+id/tvDailyChallengeInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Mixed Questions • 20 Questions"
+                            android:textColor="@color/questionCountTxtColor"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/msans" />
+
+                    </LinearLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDailyChallengePractice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ================================================= -->
+            <!-- YEAR WISE PRACTICE -->
+            <!-- ================================================= -->
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvYearWiseHeading"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="18dp"
-                android:paddingTop="9dp"
-                android:paddingEnd="18dp"
-                android:paddingBottom="9dp"
-                android:fontFamily="@font/msans"
-                android:text="COMING SOON"
+                android:layout_marginTop="26dp"
+                android:text="Year Wise Practice"
                 android:textColor="@color/subjectNameTextColor"
-                android:textSize="11sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
-                android:letterSpacing="0.08" />
+                android:fontFamily="@font/msans" />
 
-        </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="10dp"
+                android:text="Practice previous years' questions"
+                android:textColor="@color/questionCountTxtColor"
+                android:textSize="12sp"
+                android:fontFamily="@font/msans" />
+
+
+            <!-- YEAR 2024 -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardYear2024"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivYear2024"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/exam"
+                        android:contentDescription="Question paper"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvYear2024Name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="UPSC CSE PRE 2024"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnYear2024Practice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- YEAR 2023 -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardYear2023"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivYear2023"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/exam"
+                        android:contentDescription="Question paper"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvYear2023Name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="UPSC CSE PRE 2023"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnYear2023Practice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- YEAR 2022 -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardYear2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivYear2022"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/exam"
+                        android:contentDescription="Question paper"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvYear2022Name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="UPSC CSE PRE 2022"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnYear2022Practice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ================================================= -->
+            <!-- SUBJECT WISE TEST -->
+            <!-- ================================================= -->
+
+            <TextView
+                android:id="@+id/tvSubjectWiseHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="Subject Wise Test"
+                android:textColor="@color/subjectNameTextColor"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/msans" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="10dp"
+                android:text="Practice questions subject wise"
+                android:textColor="@color/questionCountTxtColor"
+                android:textSize="12sp"
+                android:fontFamily="@font/msans" />
+
+
+            <!-- POLITY -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSubjectPolity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivSubjectPolity"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/state"
+                        android:contentDescription="Polity"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvSubjectPolity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Polity"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPolityPractice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- HISTORY -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSubjectHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivSubjectHistory"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/parchment"
+                        android:contentDescription="History"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvSubjectHistory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="History"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHistoryPractice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- GEOGRAPHY -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSubjectGeography"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivSubjectGeography"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/globe"
+                        android:contentDescription="Geography"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvSubjectGeography"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Geography"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGeographyPractice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ECONOMY -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSubjectEconomy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivSubjectEconomy"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_economy"
+                        android:contentDescription="Economy"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvSubjectEconomy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Economy"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEconomyPractice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ENVIRONMENT -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSubjectEnvironment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                app:cardBackgroundColor="@color/cardBgColor"
+                app:cardCornerRadius="17dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/topicCardStroke">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+
+                    <ImageView
+                        android:id="@+id/ivSubjectEnvironment"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/environment"
+                        android:contentDescription="Environment"
+                        android:scaleType="centerInside" />
+
+
+                    <TextView
+                        android:id="@+id/tvSubjectEnvironment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Environment"
+                        android:textColor="@color/subjectNameTextColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEnvironmentPractice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:text="PRACTICE"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/msans"
+                        app:backgroundTint="@color/btnBgColor"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!-- FIXED BOTTOM NAVIGATION -->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-
         android:layout_width="match_parent"
         android:layout_height="60dp"
-
         android:layout_gravity="bottom"
-
-        android:background="@color/white"
-
+        android:background="@color/mainBgColor"
         app:itemIconSize="24dp"
         app:itemTextAppearanceActive="@style/BottomNavActiveText"
         app:itemTextAppearanceInactive="@style/BottomNavInactiveText"
-
         app:itemIconTint="@color/bottom_nav_colors"
         app:itemTextColor="@color/bottom_nav_colors"
-
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
 
