@@ -390,14 +390,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:text="Unattempted"
-                        android:textSize="12sp"
-
+                        android:textSize="11sp"
+                        android:fontFamily="@font/msans"
                         android:textColor="@color/questionCountTxtColor"
-
                         android:gravity="center"
-
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:layout_marginTop="2dp" />
 
                 </LinearLayout>
