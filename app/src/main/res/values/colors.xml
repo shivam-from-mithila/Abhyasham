@@ -17,6 +17,8 @@
     <color name="subjectNameTextColor">#0B1F3A</color>
     <color name="questionCountTxtColor">#64748B</color>
     <color name="btnBgColor">#4F46E5</color>
+    <color name="primary_color">#6750A4</color>
+    <color name="progress_track_color">#E8E0F5</color>
     <color name="progressTextColor">#0B1F3A</color>
     <color name="strokeCardColor">#E2E8F0</color>
     <color name="progressHeader1TextColor">#0B1F3A</color>

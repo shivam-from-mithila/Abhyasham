@@ -43,6 +43,8 @@
     <color name="progressTrackColor">#475569</color>
     <color name="subjectIconColor">#fff</color>
     <color name="abhyashamBtnTextColor">#fff</color>
+    <color name="primary_color">#D0BCFF</color>
+    <color name="progress_track_color">#49454F</color>
     <color name="status_bar_color_topics">#121827</color>
     <!-- Review Result Colors -->
 

@@ -29,27 +29,22 @@
 
         <!-- Header Title Row -->
 
-        <LinearLayout
+        <!-- Header Title Row -->
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
+            android:layout_height="wrap_content">
 
             <!-- Back Button -->
 
             <FrameLayout
                 android:id="@+id/btnBack"
-
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-
+                android:layout_gravity="start|center_vertical"
                 android:clickable="true"
                 android:focusable="true"
-
                 android:foreground="@drawable/rounded_ripple">
-
 
                 <ImageView
                     android:layout_width="18dp"
@@ -63,30 +58,23 @@
             </FrameLayout>
 
 
-            <!-- Title -->
+            <!-- Centered Title -->
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tvSubjectName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:layout_gravity="center"
 
-                <TextView
-                    android:id="@+id/tvSubjectName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Polity"
-                    android:textColor="@color/subjectNameTextColor"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/msans"
-                    android:maxLines="1"
-                    android:ellipsize="end" />
+                android:text="Polity"
+                android:textColor="@color/subjectNameTextColor"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/msans"
+                android:maxLines="1"
+                android:ellipsize="end" />
 
-            </LinearLayout>
-        </LinearLayout>
-
+        </FrameLayout>
 
         <!-- Subtitle + Total Questions -->
 

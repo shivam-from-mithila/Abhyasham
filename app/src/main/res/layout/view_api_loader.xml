@@ -51,16 +51,15 @@
             <!-- LOADER -->
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
-
                 android:id="@+id/apiLoaderProgress"
-
                 android:layout_width="42dp"
                 android:layout_height="42dp"
-
                 android:indeterminate="true"
 
                 app:indicatorSize="42dp"
-                app:trackThickness="4dp" />
+                app:trackThickness="4dp"
+                app:indicatorColor="@color/primary_color"
+                app:trackColor="@color/progress_track_color" />
 
 
             <!-- TITLE -->
