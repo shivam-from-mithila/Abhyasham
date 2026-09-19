@@ -6,52 +6,22 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.core.splashscreen.SplashScreen;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.ConcatAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.switchmaterial.SwitchMaterial;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 public class SecondActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-
-    private View apiLoader;
-
-    private TextView apiLoaderTitle;
-
     private BottomNavigationView bottomNavigationView;
 
-    private SubjectAdapter subjectAdapter;
-
-    private HeaderAdapter headerAdapter;
-
-    // =====================================================
-    // VIEWMODEL
-    // =====================================================
-
     private SecondActivityViewModel viewModel;
+
+    private int currentNavId = R.id.nav_home;
 
 
     // =====================================================
@@ -76,7 +46,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
         // ====================================
-        // INITIAL STATUS BAR
+        // STATUS BAR
         // ====================================
 
         updateStatusBar();
@@ -129,7 +99,7 @@ public class SecondActivity extends AppCompatActivity {
         } else {
 
             // ====================================
-            // RECREATION / BOTTOM NAV RETURN
+            // RECREATION / RETURN
             // → NO BRANDING SPLASH
             // ====================================
 
@@ -162,15 +132,11 @@ public class SecondActivity extends AppCompatActivity {
 
         if (isDarkMode) {
 
-            // Dark mode → WHITE status bar icons
-
             getWindow()
                     .getDecorView()
                     .setSystemUiVisibility(0);
 
         } else {
-
-            // Light mode → DARK status bar icons
 
             getWindow()
                     .getDecorView()
@@ -182,140 +148,17 @@ public class SecondActivity extends AppCompatActivity {
 
 
     // =====================================================
-    // INITIALIZE MAIN SCREEN
+    // INITIALIZE HOST SCREEN
     // =====================================================
 
     private void initializeMainScreen() {
-
-        // ====================================
-        // MAIN ACTIVITY LAYOUT
-        // ====================================
 
         setContentView(
                 R.layout.activity_second
         );
 
 
-        // ====================================
-        // API LOADER
-        // ====================================
-
-        apiLoader =
-                findViewById(
-                        R.id.apiLoader
-                );
-
-
-        apiLoaderTitle =
-                findViewById(
-                        R.id.apiLoaderTitle
-                );
-
-
-        // ====================================
-        // STATUS BAR
-        // ====================================
-
         updateStatusBar();
-
-
-        // ====================================
-        // RECYCLER VIEW
-        // ====================================
-
-        recyclerView =
-                findViewById(
-                        R.id.subjectRecyclerView
-                );
-
-
-        recyclerView.setLayoutManager(
-                new LinearLayoutManager(this)
-        );
-
-
-        // ====================================
-        // HEADER ADAPTER
-        // ====================================
-
-        headerAdapter =
-                new HeaderAdapter();
-
-
-        // ====================================
-        // RESTORE EXISTING DATA
-        // ====================================
-
-        if (!viewModel.subjectList.isEmpty()) {
-
-            subjectAdapter =
-                    new SubjectAdapter(
-                            viewModel.subjectList,
-                            calculateSubjectProgress()
-                    );
-
-        } else {
-
-            subjectAdapter =
-                    new SubjectAdapter(
-                            viewModel.subjectList,
-                            new HashMap<>()
-                    );
-        }
-
-
-        // ====================================
-        // CONCAT ADAPTER
-        // ====================================
-
-        ConcatAdapter concatAdapter =
-                new ConcatAdapter(
-                        headerAdapter,
-                        subjectAdapter
-                );
-
-
-        recyclerView.setAdapter(
-                concatAdapter
-        );
-
-
-        // ====================================
-        // API LOADING
-        // ====================================
-
-        if (!viewModel.apiStarted) {
-
-            apiLoader.setVisibility(
-                    View.VISIBLE
-            );
-
-
-            viewModel.apiStarted = true;
-
-
-            viewModel.apiFinished = false;
-
-
-            loadSubjects();
-
-        } else if (viewModel.apiFinished) {
-
-            // API chain already completed previously.
-            // Do not show loader again after recreation.
-
-            apiLoader.setVisibility(
-                    View.GONE
-            );
-
-        } else {
-
-            // API chain was started but is not finished yet.
-
-            apiLoader.setVisibility(
-                    View.VISIBLE
-            );
-        }
 
 
         // ====================================
@@ -328,6 +171,70 @@ public class SecondActivity extends AppCompatActivity {
                 );
 
 
+        // ====================================
+        // CHECK EXISTING FRAGMENT
+        // ====================================
+
+        Fragment currentFragment =
+                getSupportFragmentManager()
+                        .findFragmentById(
+                                R.id.fragmentContainer
+                        );
+
+
+        if (currentFragment == null) {
+
+            currentNavId =
+                    R.id.nav_home;
+
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(
+                            R.id.fragmentContainer,
+                            new HomeFragment()
+                    )
+                    .commit();
+
+        } else {
+
+            // ====================================
+            // RESTORED FRAGMENT
+            // ====================================
+
+            if (currentFragment
+                    instanceof PrepCenterFragment) {
+
+                currentNavId =
+                        R.id.nav_quick_test;
+
+            } else if (currentFragment
+                    instanceof ProfileFragment) {
+
+                currentNavId =
+                        R.id.nav_profile;
+
+            } else {
+
+                currentNavId =
+                        R.id.nav_home;
+            }
+        }
+
+
+        // ====================================
+        // SELECT CURRENT TAB
+        // ====================================
+
+        bottomNavigationView.setSelectedItemId(
+                currentNavId
+        );
+
+
+        // ====================================
+        // BOTTOM NAVIGATION LISTENER
+        // ====================================
+
         bottomNavigationView.setOnItemSelectedListener(
                 item -> {
 
@@ -335,769 +242,163 @@ public class SecondActivity extends AppCompatActivity {
                             item.getItemId();
 
 
-                    // ====================================
-                    // HOME
-                    // ====================================
-
-                    if (id == R.id.nav_home) {
-
-                        return true;
-
-
-                        // ====================================
-                        // QUICK TEST
-                        // ====================================
-
-                    } else if (
-                            id == R.id.nav_quick_test
-                    ) {
-
-                        Intent intent =
-                                new Intent(
-                                        SecondActivity.this,
-                                        QuickTestActivity.class
-                                );
-
-
-                        startActivity(intent);
-
-
-                        overridePendingTransition(
-                                R.anim.slide_in_left,
-                                R.anim.silde_out_right
-                        );
-
-
-                        return true;
-
-
-                        // ====================================
-                        // PROFILE
-                        // ====================================
-
-                    } else if (
-                            id == R.id.nav_profile
-                    ) {
-
-                        Intent intent =
-                                new Intent(
-                                        SecondActivity.this,
-                                        ProfileActivity.class
-                                );
-
-
-                        startActivity(intent);
-
-
-                        overridePendingTransition(
-                                R.anim.slide_in_right,
-                                R.anim.slide_out_left
-                        );
-
-
+                    if (id == currentNavId) {
                         return true;
                     }
 
 
-                    return false;
+                    showFragment(id);
+
+
+                    return true;
                 }
         );
+    }
 
 
-        // ====================================
-        // HOME SELECTED BY DEFAULT
-        // ====================================
+    // =====================================================
+    // SHOW FRAGMENT
+    // =====================================================
 
-        bottomNavigationView.setSelectedItemId(
-                R.id.nav_home
-        );
+    private void showFragment(int id) {
 
-
-        // ====================================
-        // HIDE / SHOW BOTTOM NAVIGATION
-        // ====================================
-
-        recyclerView.addOnScrollListener(
-                new RecyclerView.OnScrollListener() {
-
-                    @Override
-                    public void onScrolled(
-                            @NonNull RecyclerView recyclerView,
-                            int dx,
-                            int dy
-                    ) {
-
-                        super.onScrolled(
-                                recyclerView,
-                                dx,
-                                dy
-                        );
+        Fragment fragment;
 
 
-                        if (dy > 0) {
+        if (id == R.id.nav_home) {
 
-                            // Scrolling DOWN → hide
+            fragment =
+                    new HomeFragment();
 
-                            bottomNavigationView
-                                    .animate()
-                                    .translationY(
-                                            bottomNavigationView
-                                                    .getHeight()
-                                    )
-                                    .setDuration(200)
-                                    .start();
+        } else if (id == R.id.nav_quick_test) {
 
+            fragment =
+                    new PrepCenterFragment();
 
-                        } else if (dy < 0) {
+        } else if (id == R.id.nav_profile) {
 
-                            // Scrolling UP → show
-
-                            bottomNavigationView
-                                    .animate()
-                                    .translationY(0)
-                                    .setDuration(200)
-                                    .start();
-                        }
-                    }
-                }
-        );
-
-
-        // ====================================
-        // DARK MODE SWITCH
-        // ====================================
-
-        SwitchMaterial darkModeSwitch =
-                findViewById(
-                        R.id.darkModeSwitch
-                );
-
-
-        ImageView sunMoon =
-                findViewById(
-                        R.id.sun_moon
-                );
-
-
-        boolean isDarkMode =
-                (getResources()
-                        .getConfiguration()
-                        .uiMode
-                        & Configuration.UI_MODE_NIGHT_MASK)
-                        == Configuration.UI_MODE_NIGHT_YES;
-
-
-        // ====================================
-        // INITIAL STATE
-        // ====================================
-
-        darkModeSwitch.setChecked(
-                isDarkMode
-        );
-
-
-        if (isDarkMode) {
-
-            sunMoon.setImageResource(
-                    R.drawable.moon
-            );
+            fragment =
+                    new ProfileFragment();
 
         } else {
 
-            sunMoon.setImageResource(
-                    R.drawable.sun_icon
-            );
-        }
-
-
-        // ====================================
-        // LISTEN FOR DARK MODE CHANGES
-        // ====================================
-
-        darkModeSwitch.setOnCheckedChangeListener(
-                (buttonView, checked) -> {
-
-                    if (checked) {
-
-                        sunMoon.setImageResource(
-                                R.drawable.moon
-                        );
-
-
-                        if (AppCompatDelegate
-                                .getDefaultNightMode()
-                                != AppCompatDelegate.MODE_NIGHT_YES) {
-
-                            AppCompatDelegate
-                                    .setDefaultNightMode(
-                                            AppCompatDelegate
-                                                    .MODE_NIGHT_YES
-                                    );
-                        }
-
-                    } else {
-
-                        sunMoon.setImageResource(
-                                R.drawable.sun_icon
-                        );
-
-
-                        if (AppCompatDelegate
-                                .getDefaultNightMode()
-                                != AppCompatDelegate.MODE_NIGHT_NO) {
-
-                            AppCompatDelegate
-                                    .setDefaultNightMode(
-                                            AppCompatDelegate
-                                                    .MODE_NIGHT_NO
-                                    );
-                        }
-                    }
-                }
-        );
-    }
-
-
-    // =====================================================
-    // CALCULATE CURRENT SUBJECT PROGRESS
-    // =====================================================
-
-    private Map<String, Integer> calculateSubjectProgress() {
-
-        Map<String, Integer>
-                subjectProgressMap =
-                new HashMap<>();
-
-
-        for (Subject subject :
-                viewModel.subjectList) {
-
-            if (subject == null) {
-                continue;
-            }
-
-
-            String subjectId =
-                    subject.getId();
-
-
-            if (subjectId == null ||
-                    subjectId.isEmpty()) {
-
-                continue;
-            }
-
-
-            Set<String> practicedQuestionIds =
-                    new HashSet<>();
-
-
-            for (Topic topic :
-                    viewModel.topicList) {
-
-                if (topic == null) {
-                    continue;
-                }
-
-
-                String topicSubjectId =
-                        topic.getSubjectId();
-
-
-                if (subjectId.equals(
-                        topicSubjectId
-                )) {
-
-                    String topicId =
-                            topic.getId();
-
-
-                    if (topicId == null ||
-                            topicId.isEmpty()) {
-
-                        continue;
-                    }
-
-
-                    Set<String> ids =
-                            PracticeStatsManager
-                                    .getPracticedQuestionIdsForTopic(
-                                            this,
-                                            topicId
-                                    );
-
-
-                    if (ids != null) {
-
-                        practicedQuestionIds
-                                .addAll(ids);
-                    }
-                }
-            }
-
-
-            int practiced =
-                    practicedQuestionIds.size();
-
-
-            int total =
-                    viewModel.subjectQuestionCountMap
-                            .getOrDefault(
-                                    subjectId,
-                                    0
-                            );
-
-
-            int progress = 0;
-
-
-            if (total > 0) {
-
-                progress =
-                        (practiced * 100)
-                                / total;
-            }
-
-
-            if (progress < 0) {
-                progress = 0;
-            }
-
-
-            if (progress > 100) {
-                progress = 100;
-            }
-
-
-            subjectProgressMap.put(
-                    subjectId,
-                    progress
-            );
-        }
-
-
-        return subjectProgressMap;
-    }
-
-
-    // =====================================================
-    // LOAD SUBJECTS
-    // =====================================================
-
-    private void loadSubjects() {
-
-        apiLoader.setVisibility(
-                View.VISIBLE
-        );
-
-
-        ApiClient
-                .getApiService()
-                .getSubjects()
-                .enqueue(
-                        new Callback<List<Subject>>() {
-
-                            @Override
-                            public void onResponse(
-                                    Call<List<Subject>> call,
-                                    Response<List<Subject>> response) {
-
-                                if (isFinishing()
-                                        || isDestroyed()) {
-                                    return;
-                                }
-
-
-                                if (response.isSuccessful()
-                                        && response.body() != null) {
-
-                                    viewModel.subjectList.clear();
-
-
-                                    viewModel.subjectList.addAll(
-                                            response.body()
-                                    );
-
-
-                                    viewModel.subjectsLoaded =
-                                            true;
-
-
-                                    // =================================
-                                    // SHOW SUBJECTS IMMEDIATELY
-                                    // =================================
-
-                                    subjectAdapter =
-                                            new SubjectAdapter(
-                                                    viewModel.subjectList,
-                                                    new HashMap<>()
-                                            );
-
-
-                                    ConcatAdapter concatAdapter =
-                                            new ConcatAdapter(
-                                                    headerAdapter,
-                                                    subjectAdapter
-                                            );
-
-
-                                    recyclerView.setAdapter(
-                                            concatAdapter
-                                    );
-
-
-                                    // =================================
-                                    // CONTINUE API CHAIN
-                                    // =================================
-
-                                    loadTopics();
-
-                                } else {
-
-                                    // Subjects failed.
-                                    // Stop loader.
-
-                                    viewModel.apiFinished =
-                                            true;
-
-
-                                    apiLoader.setVisibility(
-                                            View.GONE
-                                    );
-                                }
-                            }
-
-
-                            @Override
-                            public void onFailure(
-                                    Call<List<Subject>> call,
-                                    Throwable t) {
-
-                                if (isFinishing()
-                                        || isDestroyed()) {
-                                    return;
-                                }
-
-
-                                viewModel.apiFinished =
-                                        true;
-
-
-                                apiLoader.setVisibility(
-                                        View.GONE
-                                );
-                            }
-                        }
-                );
-    }
-
-
-    // =====================================================
-    // LOAD TOPICS
-    // =====================================================
-
-    private void loadTopics() {
-
-        ApiClient
-                .getApiService()
-                .getTopics()
-                .enqueue(
-                        new Callback<List<Topic>>() {
-
-                            @Override
-                            public void onResponse(
-                                    Call<List<Topic>> call,
-                                    Response<List<Topic>> response) {
-
-                                if (isFinishing()
-                                        || isDestroyed()) {
-                                    return;
-                                }
-
-
-                                viewModel.topicList.clear();
-
-
-                                if (response.isSuccessful()
-                                        && response.body() != null) {
-
-                                    viewModel.topicList.addAll(
-                                            response.body()
-                                    );
-
-
-                                    viewModel.topicsLoaded =
-                                            true;
-
-
-                                    loadQuestions();
-
-                                } else {
-
-                                    viewModel.apiFinished =
-                                            true;
-
-
-                                    updateSubjectProgress();
-
-
-                                    apiLoader.setVisibility(
-                                            View.GONE
-                                    );
-                                }
-                            }
-
-
-                            @Override
-                            public void onFailure(
-                                    Call<List<Topic>> call,
-                                    Throwable t) {
-
-                                if (isFinishing()
-                                        || isDestroyed()) {
-                                    return;
-                                }
-
-
-                                viewModel.topicList.clear();
-
-
-                                viewModel.apiFinished =
-                                        true;
-
-
-                                updateSubjectProgress();
-
-
-                                apiLoader.setVisibility(
-                                        View.GONE
-                                );
-                            }
-                        }
-                );
-    }
-
-
-    // =====================================================
-    // UPDATE SUBJECT PROGRESS
-    // =====================================================
-
-    private void updateSubjectProgress() {
-
-        if (recyclerView == null
-                || apiLoader == null) {
             return;
         }
 
 
-        Map<String, Integer>
-                subjectProgressMap =
-                calculateSubjectProgress();
+        int enterAnimation;
+        int exitAnimation;
 
 
-        subjectAdapter =
-                new SubjectAdapter(
-                        viewModel.subjectList,
-                        subjectProgressMap
-                );
+// =====================================================
+// HOME → PREP CENTER
+// =====================================================
+
+        if (currentNavId == R.id.nav_home
+                && id == R.id.nav_quick_test) {
+
+            enterAnimation =
+                    R.anim.slide_in_left;
+
+            exitAnimation =
+                    R.anim.silde_out_right;
 
 
-        ConcatAdapter concatAdapter =
-                new ConcatAdapter(
-                        headerAdapter,
-                        subjectAdapter
-                );
+// =====================================================
+// PREP CENTER → HOME
+// =====================================================
+
+        } else if (currentNavId == R.id.nav_quick_test
+                && id == R.id.nav_home) {
+
+            enterAnimation =
+                    R.anim.slide_in_right;
+
+            exitAnimation =
+                    R.anim.slide_out_left;
 
 
-        recyclerView.setAdapter(
-                concatAdapter
-        );
+// =====================================================
+// HOME → PROFILE
+// =====================================================
 
+        } else if (currentNavId == R.id.nav_home
+                && id == R.id.nav_profile) {
+
+            enterAnimation =
+                    R.anim.slide_in_right;
+
+            exitAnimation =
+                    R.anim.slide_out_left;
+
+
+// =====================================================
+// PROFILE → HOME
+// =====================================================
+
+        } else if (currentNavId == R.id.nav_profile
+                && id == R.id.nav_home) {
+
+            enterAnimation =
+                    R.anim.slide_in_left;
+
+            exitAnimation =
+                    R.anim.silde_out_right;
+
+
+// =====================================================
+// PREP CENTER → PROFILE
+// =====================================================
+
+        } else if (currentNavId == R.id.nav_quick_test
+                && id == R.id.nav_profile) {
+
+            enterAnimation =
+                    R.anim.slide_in_right;
+
+            exitAnimation =
+                    R.anim.slide_out_left;
+
+
+// =====================================================
+// PROFILE → PREP CENTER
+// =====================================================
+
+        } else if (currentNavId == R.id.nav_profile
+                && id == R.id.nav_quick_test) {
+
+            enterAnimation =
+                    R.anim.slide_in_left;
+
+            exitAnimation =
+                    R.anim.silde_out_right;
+
+
+        } else {
+
+            return;
+        }
 
         // ====================================
-        // HIDE LOADER ONLY AFTER API FINISH
+        // FRAGMENT TRANSACTION
         // ====================================
 
-        if (viewModel.apiFinished) {
-
-            apiLoader.setVisibility(
-                    View.GONE
-            );
-        }
-    }
-
-
-    // =====================================================
-    // LOAD QUESTIONS
-    // =====================================================
-
-    private void loadQuestions() {
-
-        ApiClient
-                .getApiService()
-                .getQuestions()
-                .enqueue(
-                        new Callback<List<Question>>() {
-
-                            @Override
-                            public void onResponse(
-                                    Call<List<Question>> call,
-                                    Response<List<Question>> response) {
-
-                                if (isFinishing()
-                                        || isDestroyed()) {
-                                    return;
-                                }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(
+                        enterAnimation,
+                        exitAnimation
+                )
+                .setReorderingAllowed(true)
+                .replace(
+                        R.id.fragmentContainer,
+                        fragment
+                )
+                .commit();
 
 
-                                viewModel
-                                        .subjectQuestionCountMap
-                                        .clear();
-
-
-                                if (response.isSuccessful()
-                                        && response.body() != null) {
-
-                                    List<Question> questions =
-                                            response.body();
-
-
-                                    // =================================
-                                    // topicId -> subjectId
-                                    // =================================
-
-                                    Map<String, String>
-                                            topicToSubjectMap =
-                                            new HashMap<>();
-
-
-                                    for (Topic topic :
-                                            viewModel.topicList) {
-
-                                        if (topic == null) {
-                                            continue;
-                                        }
-
-
-                                        topicToSubjectMap.put(
-                                                topic.getId(),
-                                                topic.getSubjectId()
-                                        );
-                                    }
-
-
-                                    // =================================
-                                    // COUNT REAL QUESTIONS
-                                    // =================================
-
-                                    for (Question question :
-                                            questions) {
-
-                                        if (question == null) {
-                                            continue;
-                                        }
-
-
-                                        String subjectId =
-                                                topicToSubjectMap.get(
-                                                        question.getTopicId()
-                                                );
-
-
-                                        if (subjectId == null) {
-                                            continue;
-                                        }
-
-
-                                        int count =
-                                                viewModel
-                                                        .subjectQuestionCountMap
-                                                        .getOrDefault(
-                                                                subjectId,
-                                                                0
-                                                        );
-
-
-                                        viewModel
-                                                .subjectQuestionCountMap
-                                                .put(
-                                                        subjectId,
-                                                        count + 1
-                                                );
-                                    }
-                                }
-
-
-                                // =================================
-                                // API CHAIN FINISHED
-                                // =================================
-
-                                viewModel.questionsLoaded =
-                                        true;
-
-                                viewModel.apiFinished =
-                                        true;
-
-
-                                // =================================
-                                // FINAL PROGRESS UPDATE
-                                // =================================
-
-                                updateSubjectProgress();
-                            }
-
-
-                            @Override
-                            public void onFailure(
-                                    Call<List<Question>> call,
-                                    Throwable t) {
-
-                                if (isFinishing()
-                                        || isDestroyed()) {
-                                    return;
-                                }
-
-
-                                viewModel
-                                        .subjectQuestionCountMap
-                                        .clear();
-
-
-                                // Even if questions API fails,
-                                // the API chain is finished.
-
-                                viewModel.apiFinished =
-                                        true;
-
-
-                                updateSubjectProgress();
-                            }
-                        }
-                );
-    }
-
-
-    // =====================================================
-    // REFRESH WHEN RETURNING TO SECOND ACTIVITY
-    // =====================================================
-
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-
-
-        if (headerAdapter != null) {
-
-            headerAdapter.notifyDataSetChanged();
-        }
-
-
-        if (!viewModel.subjectList.isEmpty()
-                && !viewModel.topicList.isEmpty()) {
-
-            updateSubjectProgress();
-        }
+        currentNavId =
+                id;
     }
 
 
@@ -1107,16 +408,13 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onNewIntent(
-            Intent intent) {
+            Intent intent
+    ) {
 
-        super.onNewIntent(
-                intent
-        );
+        super.onNewIntent(intent);
 
 
-        setIntent(
-                intent
-        );
+        setIntent(intent);
 
 
         if (bottomNavigationView != null) {

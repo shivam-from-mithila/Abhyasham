@@ -302,7 +302,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -332,7 +332,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -362,7 +362,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -392,7 +392,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -422,7 +422,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -452,7 +452,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -482,7 +482,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -512,7 +512,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -589,7 +589,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -605,6 +605,7 @@
                             android:layout_width="34dp"
                             android:layout_height="34dp"
                             android:src="@drawable/state"
+                            app:tint="@color/subjectIconColor"
                             android:contentDescription="Polity"
                             android:scaleType="centerInside" />
 
@@ -637,7 +638,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -653,6 +654,7 @@
                             android:layout_width="34dp"
                             android:layout_height="34dp"
                             android:src="@drawable/parchment"
+                            app:tint="@color/subjectIconColor"
                             android:contentDescription="History"
                             android:scaleType="centerInside" />
 
@@ -685,7 +687,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -701,6 +703,7 @@
                             android:layout_width="34dp"
                             android:layout_height="34dp"
                             android:src="@drawable/globe"
+                            app:tint="@color/subjectIconColor"
                             android:contentDescription="Geography"
                             android:scaleType="centerInside" />
 
@@ -733,7 +736,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -749,6 +752,7 @@
                             android:layout_width="34dp"
                             android:layout_height="34dp"
                             android:src="@drawable/ic_economy"
+                            app:tint="@color/subjectIconColor"
                             android:contentDescription="Economy"
                             android:scaleType="centerInside" />
 
@@ -781,7 +785,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -797,6 +801,7 @@
                             android:layout_width="34dp"
                             android:layout_height="34dp"
                             android:src="@drawable/environment"
+                            app:tint="@color/subjectIconColor"
                             android:contentDescription="Environment"
                             android:scaleType="centerInside" />
 
@@ -827,7 +832,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="17dp"
                     app:cardElevation="2dp">
 
@@ -843,6 +848,7 @@
                             android:layout_width="34dp"
                             android:layout_height="34dp"
                             android:src="@drawable/dna"
+                            app:tint="@color/subjectIconColor"
                             android:contentDescription="Science and Technology"
                             android:scaleType="centerInside" />
 
@@ -894,24 +900,5 @@
         app:cornerRadius="16dp"
         app:rippleColor="#33FFFFFF" />
 
-
-    <!-- ========================================================= -->
-    <!-- BOTTOM NAVIGATION -->
-    <!-- ========================================================= -->
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        android:background="@color/mainBgColor"
-        android:elevation="8dp"
-        app:itemIconSize="24dp"
-        app:itemTextAppearanceActive="@style/BottomNavActiveText"
-        app:itemTextAppearanceInactive="@style/BottomNavInactiveText"
-        app:itemIconTint="@color/bottom_nav_colors"
-        app:itemTextColor="@color/bottom_nav_colors"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
 
 </FrameLayout>

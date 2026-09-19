@@ -4,8 +4,8 @@
 
     <item
         android:id="@+id/nav_quick_test"
-        android:icon="@drawable/flash"
-        android:title="Quick Test" />
+        android:icon="@drawable/watch"
+        android:title="PrepCenter" />
 
     <item
         android:id="@+id/nav_home"

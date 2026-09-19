@@ -80,38 +80,42 @@
                         android:maxLines="1" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
+                <!-- TOPIC COUNT -->
+                <!-- TOPIC COUNT -->
+                <!-- ABHYASHAM BUTTON -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/startAbhyasham"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="15dp"
+
+                    android:text="Abhyasham"
+                    android:textAllCaps="true"
+                    android:textColor="@color/abhyashamBtnTextColor"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+
+                    android:paddingStart="10dp"
+                    android:paddingEnd="14dp"
+
+                    app:icon="@drawable/lightbulb"
+                    app:iconGravity="textStart"
+                    app:iconPadding="2dp"
+                    app:iconSize="14dp"
+                    app:iconTint="@color/abhyashamBtnTextColor"
+
+                    app:cornerRadius="10dp"
+                    app:backgroundTint="@color/btnBgColor" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
             <!-- ABHYASHAM BUTTON -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/startAbhyasham"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
 
-                android:text="Abhyasham"
-                android:textAllCaps="true"
-                android:textColor="@color/abhyashamBtnTextColor"
-                android:textSize="14sp"
-                android:textStyle="bold"
-
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-
-                android:paddingStart="10dp"
-                android:paddingEnd="14dp"
-
-                app:icon="@drawable/lightbulb"
-                app:iconGravity="textStart"
-                app:iconPadding="2dp"
-                app:iconSize="14dp"
-                app:iconTint="@color/abhyashamBtnTextColor"
-
-                app:cornerRadius="10dp"
-                app:backgroundTint="@color/btnBgColor" />
 
         </LinearLayout>
 
@@ -154,5 +158,6 @@
         </LinearLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 </com.google.android.material.card.MaterialCardView>

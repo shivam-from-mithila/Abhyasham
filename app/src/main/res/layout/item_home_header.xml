@@ -207,5 +207,18 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/tvSubjectPracticeHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="14dp"
+        android:text="Topic Wise CSE PT Practice"
+        android:textColor="@color/subjectNameTextColor"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/msans" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
